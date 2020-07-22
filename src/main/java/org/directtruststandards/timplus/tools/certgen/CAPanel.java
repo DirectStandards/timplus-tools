@@ -169,7 +169,7 @@ class CAPanel extends JPanel
 		emailField= new TextEntryField("Email:");
 		fieldsPanel.add(emailField);		
 		
-		expField = new SpinEntryField("Experiation (Days):", 365);
+		expField = new SpinEntryField("Expiration (Days):", 365);
 		fieldsPanel.add(expField);
 		
 		keyStr = new DropDownEntry("Key Strength:", new Object[] {2048, 4096});
