@@ -199,7 +199,7 @@ public class CertGenerator
 		// create the DN
 		if (fields.getAttributes().containsKey("EMAILADDRESS"))
 		{
-			dnBuilder.append("EMAILADDRESS=").append(fields.getAttributes().get("EMAILADDRESS")).append(", ");
+			dnBuilder.append("E=").append(fields.getAttributes().get("EMAILADDRESS")).append(", ");
 			altName = fields.getAttributes().get("EMAILADDRESS").toString();
 		}
 		
@@ -288,14 +288,14 @@ public class CertGenerator
 		/*
 		 * General cert fields
 		 */
-		final X509v3CertificateBuilder  v1CertGen = new X509v3CertificateBuilder(new X500Name(fields.getSignerCert().getIssuerX500Principal().getName()), 
+		final X509v3CertificateBuilder  v1CertGen = new X509v3CertificateBuilder(new X500Name(fields.getSignerCert().getIssuerDN().toString()), 
 				BigInteger.valueOf(generatePositiveRandom()), start.getTime(), end.getTime(), new X500Name(DN), SubjectPublicKeyInfo.getInstance(keyPair.getPublic().getEncoded()));
         
 		/*
 		 * Auth Key ID
 		 */
         v1CertGen.addExtension(X509Extensions.AuthorityKeyIdentifier, false,
-        		new AuthorityKeyIdentifierStructure(fields.getSignerCert()));
+        		new AuthorityKeyIdentifierStructure(fields.getSignerCert().getPublicKey()));
 
 
         /*
