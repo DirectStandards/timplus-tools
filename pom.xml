@@ -1,43 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd ">
-    <groupId>org.directtruststandards</groupId>    
-    <modelVersion>4.0.0</modelVersion>
-    <artifactId>timplus-tools</artifactId>    
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.3.4.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>org.directtruststandards</groupId>
+	<artifactId>timplus-tools</artifactId>
     <name>TIM+ tools</name>
     <version>1.0.0-SNAPSHOT</version>
     <description>TIM+ tools such as a certificate generator.</description>
     <inceptionYear>2020</inceptionYear>
-    <url>https://github.com/DirectStandards/timplus-tools</url> 
-    <parent>
-	   <groupId>org.springframework.boot</groupId>
-	   <artifactId>spring-boot-dependencies</artifactId>
-	   <version>2.3.4.RELEASE</version>
-    </parent>    
-    <developers>
-        <developer>
-            <name>Greg Meyer</name>
-            <id>GM2552</id>
-            <email>gm2552@cerner.com</email>
-            <roles>
-                <role>owner</role>
-            </roles>              
-        </developer>                            
-     </developers>
-     <organization>
-        <name>DirectTrust Standards</name>
-        <url>https://directtruststandards.org</url>
-    </organization>
-   <prerequisites>
-        <maven>3.0.0</maven>
-   </prerequisites>   	   
-	<scm>
-		<url>scm:git:https://github.com/DirectStandards/timplus-tools.git</url>
-		<connection>scm:git:https://github.com/DirectStandards/timplus-tools.git</connection>
-	</scm>  
+
 	<properties>
 		<java.version>1.8</java.version>
-	</properties>	     
-  <dependencies>    
+	</properties>
+	<dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-logging</artifactId>
@@ -73,36 +54,17 @@
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<scope>test</scope>
-		</dependency>  	   	    			   																																																																																												
-  </dependencies>      
-  <build>
-    <plugins>  
-		<plugin>
-			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-compiler-plugin</artifactId>
-			<executions>
-				<execution>
-					<goals>
-						<goal>testCompile</goal>
-					</goals>
-					<phase>compile</phase>
-				</execution>
-			</executions>
-			<configuration>
-				<fork>true</fork>
-				<optimize>true</optimize>
-				<showDeprecation>true</showDeprecation>
-				<encoding>UTF-8</encoding>
-				<source>1.8</source>
-				<target>1.8</target>
-			</configuration>
-		</plugin>      	
-	   <plugin>
-	  	  <groupId>org.springframework.boot</groupId>
-	 	  <artifactId>spring-boot-maven-plugin</artifactId>
-	   </plugin>              			    
-    </plugins>    
-  </build>                        
+		</dependency>  	
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>			
+			</plugin>		
+		</plugins>
+	</build>
   <distributionManagement>
     <snapshotRepository>
         <id>sonatype-snapshot</id>
