@@ -32,6 +32,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 
 /**
  * Simple Swing application for generating self signed certificates (CAs) and leaf certificates for TIM+.  The certificates generated are 
@@ -40,6 +42,7 @@ import org.bouncycastle.jce.provider.BouncyCastleProvider;
  * @since 1.0
  */
 ///CLOVER:OFF
+@SpringBootApplication
 public class TIMPlusCertGenerator extends JFrame
 {
     static
@@ -53,12 +56,16 @@ public class TIMPlusCertGenerator extends JFrame
 	private static final long serialVersionUID = -1362014092984111324L;
 	private CAPanel certAuth;
 
-	public static void main(String[] _args)
-	{     		
+    public static void main(String[] args) 
+    {
+
+        new SpringApplicationBuilder(TIMPlusCertGenerator.class)
+                .headless(false).run(args);
+
 		TIMPlusCertGenerator hi = new TIMPlusCertGenerator();
 		hi.setVisible(true);
-		
-	}
+    }	
+	
 	
 	public TIMPlusCertGenerator()
 	{	
